@@ -1,6 +1,6 @@
 # Cookie Homepage State
 
-Latest correction: 2026-06-11 11:12 KST rewrote Worklog 02 (`worklog/2026-05-16-ssp-autonomy-boundary/`) into the agreed story-first worklog format and removed its `보강 필요` label from the index. Earlier at 11:08 KST, fixed `worklog/index.html` after the public list visibly jumped from Worklog 01 to Worklog 08 by showing Worklog 00-15 in one continuous reading order.
+Latest correction: 2026-06-11 11:25 KST aligned all visible Worklog 00-15 entries to the agreed story-first worklog format with collapsed problem/lesson toggles. Rewrote Worklog 03-08 and 11-15 in this batch; Worklog 08 explicitly records Cookie's repeated Slack thread-index/update omissions and the closeout gate for top-card updates, continuation threads, and receipt.threadId verification. Earlier at 11:12 KST, rewrote Worklog 02; at 11:08 KST, fixed the index jump from Worklog 01 to Worklog 08.
 
 Project status: active
 Goal: Build a standalone static Cookie homepage / long-term learning library with a memory-aware Korean worklog and capability pages.
