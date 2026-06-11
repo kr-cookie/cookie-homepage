@@ -31,6 +31,8 @@ npm run preview
 - GitHub Pages는 정적 홈페이지 공개용으로 사용한다.
 - 시놀로지/NAS는 내부 자료, 백업, 자동화, 원본 보관 역할로 분리한다.
 - 공개 저장소에는 홈페이지에 필요한 정적 파일만 올린다.
+- 공개 저장소: https://github.com/kr-cookie/cookie-homepage
+- GitHub Pages 주소: https://kr-cookie.github.io/cookie-homepage/
 
 ## 디자인 보존 기준
 
