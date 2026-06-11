@@ -1,0 +1,10 @@
+﻿{
+  "name": "cookie-homepage-standalone",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone static homepage and learning library for Cookie_AI.",
+  "scripts": {
+    "check": "node tools/check.js",
+    "preview": "node tools/serve.js"
+  }
+}
