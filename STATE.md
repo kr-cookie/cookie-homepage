@@ -1,6 +1,6 @@
 # Cookie Homepage State
 
-Latest correction: 2026-06-11 11:08 KST fixed `worklog/index.html` after the public worklog list visibly jumped from Worklog 01 to Worklog 08. Worklog 02-07 and 11-12 already existed, but the index had hidden them in a separate specialist/backlog section without visible numbers. The index now shows Worklog 00-15 in one continuous reading order, with `보강 필요` labels for entries that still need public-style rewriting.
+Latest correction: 2026-06-11 11:12 KST rewrote Worklog 02 (`worklog/2026-05-16-ssp-autonomy-boundary/`) into the agreed story-first worklog format and removed its `보강 필요` label from the index. Earlier at 11:08 KST, fixed `worklog/index.html` after the public list visibly jumped from Worklog 01 to Worklog 08 by showing Worklog 00-15 in one continuous reading order.
 
 Project status: active
 Goal: Build a standalone static Cookie homepage / long-term learning library with a memory-aware Korean worklog and capability pages.
