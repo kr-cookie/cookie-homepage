@@ -1,5 +1,7 @@
 # Cookie Homepage State
 
+Latest correction: 2026-06-11 11:08 KST fixed `worklog/index.html` after the public worklog list visibly jumped from Worklog 01 to Worklog 08. Worklog 02-07 and 11-12 already existed, but the index had hidden them in a separate specialist/backlog section without visible numbers. The index now shows Worklog 00-15 in one continuous reading order, with `보강 필요` labels for entries that still need public-style rewriting.
+
 Project status: active
 Goal: Build a standalone static Cookie homepage / long-term learning library with a memory-aware Korean worklog and capability pages.
 Owner/approval: 쌀떡 approved autonomous local creation and preview on 2026-06-10; approved moving Cookie homepage toward free GitHub/GitHub Pages use on 2026-06-11.
