@@ -12,6 +12,7 @@ Boundaries: Keep all homepage files under this folder. Public GitHub/GitHub Page
 - All menu labels and internal content should be Korean whenever possible. Keep English only for necessary proper nouns, file names, commands, product/tool names, or technical identifiers.
 - Worklog entries should preserve when and what happened from memory, but avoid sensitive raw logs.
 - Private reference sites were used only as structural inspiration; public pages should present Cookie's own record.
+- Preserve the 2026-06-11 Claude Coworks-updated `assets/site.css` visual direction as the baseline design. Future menus, sections, and content additions should keep the same warm dark/editorial tone, header behavior, card language, and timeline styling unless 쌀떡 explicitly approves a redesign.
 
 ## Processes
 
@@ -64,3 +65,4 @@ Slack continuation title convention: `*[ 프로젝트명 / 프로세스명 2 ]*`
 - 2026-06-10 11:40 KST: Revised homepage v2 after feedback: default dark mode, Material/MkDocs-like top bar, worklog index changed to Coni-style clickable post list with individual detail pages, pre-2026-05-27 entries added, change-log toggle wording cleaned, and 운영 문서 content expanded instead of over-summarized.
 - 2026-06-10 11:50 KST: Added Worklog 00 prologue post (`worklog/2025-10-cookie-birth-attempts-prologue/`) so the 업무일지 starts from Cookie’s pre-durable-memory birth/retry context rather than Hermes-first.
 - 2026-06-11 09:55 KST: 쌀떡 approved attaching GitHub to Cookie and using free GitHub Pages for the homepage. Started local publication prep with a public-safety gate and `.gitignore`.
+- 2026-06-11 10:04 KST: 쌀떡 clarified that the D-drive homepage design had been revised through Claude Coworks before Cookie noticed it. Confirmed `assets/site.css` v5 was already included in the initial Git history and recorded it as the baseline design to preserve across future menus/design additions.
