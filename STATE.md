@@ -27,7 +27,7 @@ Boundaries: Keep all homepage files under this folder. Public GitHub/GitHub Page
 | memory-integration | done | showed curated long-term memory model | connect future generated summaries | - | memory/index.html |
 | family-agent-foundation | in-progress | added Kane/family-agent placeholders | design Kane initialization checklist next | - | capabilities/index.html |
 | github-pages-publication | done | public GitHub repo connected, site pushed, GitHub Pages enabled and verified | keep future homepage updates on `main` and verify Pages after push | - | https://kr-cookie.github.io/cookie-homepage/ |
-| custom-domain-dns | waiting | `cookie-home.kro.kr` CNAME changed from Synology DDNS to GitHub Pages | wait for GitHub Pages certificate, then enable HTTPS enforcement | GitHub Pages certificate not issued yet | http://cookie-home.kro.kr/ |
+| custom-domain-dns | done | `cookie-home.kro.kr` CNAME changed from Synology DDNS to GitHub Pages and HTTPS enforcement enabled | keep future homepage updates on `main` and verify HTTPS after push | - | https://cookie-home.kro.kr/ |
 
 ## Official project taxonomy
 
@@ -46,7 +46,7 @@ Slack continuation title convention: `*[ 프로젝트명 / 프로세스명 2 ]*`
 
 - Active process: github-pages-publication
 - Active task: GitHub Pages and custom-domain DNS verified
-- Next safe action: after GitHub Pages issues the certificate for `cookie-home.kro.kr`, enable HTTPS enforcement; for future homepage edits, preserve the baseline design, run `npm run check`, commit, push, and verify the Pages URL.
+- Next safe action: for future homepage edits, preserve the baseline design, run `npm run check`, commit, push, and verify both `https://cookie-home.kro.kr/` and the GitHub Pages fallback URL.
 
 ## Checkpoints
 
@@ -71,3 +71,4 @@ Slack continuation title convention: `*[ 프로젝트명 / 프로세스명 2 ]*`
 - 2026-06-11 10:04 KST: 쌀떡 clarified that the D-drive homepage design had been revised through Claude Coworks before Cookie noticed it. Confirmed `assets/site.css` v5 was already included in the initial Git history and recorded it as the baseline design to preserve across future menus/design additions.
 - 2026-06-11 10:24 KST: Created public GitHub repo `kr-cookie/cookie-homepage`, authorized GitHub CLI for `kr-cookie`, pushed `main`, enabled GitHub Pages from `main` `/`, and verified `https://kr-cookie.github.io/cookie-homepage/` returned HTTP 200 with title `홈 — 쿠키의 기록`.
 - 2026-06-11 10:55 KST: Set GitHub Pages custom domain to `cookie-home.kro.kr`, changed 내도메인.한국 DNS CNAME from `cookie77.myds.me` to `kr-cookie.github.io`, and verified `http://cookie-home.kro.kr/` returns the Cookie homepage through GitHub Pages. HTTPS enforcement is still waiting on GitHub certificate issuance.
+- 2026-06-12 04:48 KST: Fixed stuck GitHub Pages HTTPS provisioning by removing and re-adding the custom domain through the GitHub Pages API, waited until the certificate state became `approved`, enabled HTTPS enforcement, and verified `https://cookie-home.kro.kr/` returns HTTP 200 while `http://cookie-home.kro.kr/` redirects to HTTPS.
