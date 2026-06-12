@@ -37,7 +37,7 @@ Use these Korean homepage names as the shared naming source for Slack thread tit
 | --- | --- | --- |
 | 쿠키 인프라 유지보수 | 쿠키의 정체성, 신뢰 원칙, 기억, 학습, 홈페이지, 실행 안정성, 업데이트 승격 | 정체성과 신뢰 원칙; 꿈 기억 관리; 학습과 스킬화; 지식 대시보드; 업데이트 승격 전략; 실행 환경 안정화 |
 | 촬영 업무 지원 | 쌀떡의 촬영·일정·데이터 정리 업무 지원 | SSP B컷 판별 개선; 기술 위험 검수; 촬영 일정 수집; 캘린더 일정 관리; 촬영 데이터 작업공간 |
-| 에이전트 운영 관리 | 서브에이전트 설계, 초기화, 권한, 운영 멘토링 | 케인 초기화; 에이전트 권한 관리; 전문 에이전트 준비 |
+| 에이전트 운영 관리 | 서브에이전트 설계, 온보딩, 권한, 관리감독 | 케인 온보딩; 에이전트 권한 관리; 전문 에이전트 준비 |
 | 홈 인텔리전스 설계 | HAOS, 집 IoT 설계, 자비스 운영, 자동화 권한 관리 | 자비스 운영 설계; HAOS 복구; IoT 상태 관제; 자동화 권한 관리 |
 
 Slack continuation title convention: `*[ 프로젝트명 / 프로세스명 2 ]*`, incrementing the number for later continuation threads.
@@ -72,3 +72,5 @@ Slack continuation title convention: `*[ 프로젝트명 / 프로세스명 2 ]*`
 - 2026-06-11 10:24 KST: Created public GitHub repo `kr-cookie/cookie-homepage`, authorized GitHub CLI for `kr-cookie`, pushed `main`, enabled GitHub Pages from `main` `/`, and verified `https://kr-cookie.github.io/cookie-homepage/` returned HTTP 200 with title `홈 — 쿠키의 기록`.
 - 2026-06-11 10:55 KST: Set GitHub Pages custom domain to `cookie-home.kro.kr`, changed 내도메인.한국 DNS CNAME from `cookie77.myds.me` to `kr-cookie.github.io`, and verified `http://cookie-home.kro.kr/` returns the Cookie homepage through GitHub Pages. HTTPS enforcement is still waiting on GitHub certificate issuance.
 - 2026-06-12 04:48 KST: Fixed stuck GitHub Pages HTTPS provisioning by removing and re-adding the custom domain through the GitHub Pages API, waited until the certificate state became `approved`, enabled HTTPS enforcement, and verified `https://cookie-home.kro.kr/` returns HTTP 200 while `http://cookie-home.kro.kr/` redirects to HTTPS.
+- 2026-06-12 09:58 KST: Began Caine's first scoped homepage review task. Rewrote the Caine onboarding process page for 모찌님-facing clarity, aligned Cookie/Caine/Jarvis wording with the newer supervisor-boundary policy, and removed old "mentor only" phrasing from public operating docs.
+- 2026-06-12 09:58 KST: Caine revised the homepage's agent onboarding surface after Slack live smoke. Renamed the process from `케인 초기화` to `케인 온보딩`, rewrote `processes/family-agent-onboarding/` around Caine greeting 모찌님, clarified Caine/Cookie/account/permission boundaries, updated the dashboard card and taxonomy, and ran `npm run check` (`Checked 30 HTML files: OK`).

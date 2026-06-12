@@ -1,6 +1,8 @@
 from pathlib import Path
 from html import escape
 
+raise SystemExit("worklog_v2_posts.py is stale after the 2026-06-12 Caine onboarding rewrite; revise templates before running.")
+
 ROOT = Path(__file__).resolve().parents[1]
 
 nav_items = [('홈',''),('쿠키 소개','about/'),('업무일지','worklog/'),('업무현황','projects/'),('스킬','skills/'),('운영 문서','docs/')]

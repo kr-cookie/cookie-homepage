@@ -1,6 +1,8 @@
 from pathlib import Path
 import html
 
+raise SystemExit("rebuild_site_v2.py is stale after the 2026-06-12 Caine onboarding rewrite; revise templates before running.")
+
 ROOT = Path(__file__).resolve().parents[1]
 
 nav_items = [
@@ -28,9 +30,9 @@ projects = [
         ('캘린더 일정 관리', 'active', '촬영 일정 읽기/쓰기 작업을 승인된 범위에서 수행합니다.'),
         ('촬영 데이터 작업공간', 'active', '캘린더 메모를 바탕으로 촬영 폴더/백업 준비 흐름을 만듭니다.'),
     ]),
-    ('에이전트 운영 관리', 'active', '케인과 향후 전문 에이전트를 설계하고 운영 멘토로 관리합니다.', [
-        ('케인 초기화', 'active', '모찌를 위한 케인의 정체성, 기억, 홈페이지 기반을 설계합니다.'),
-        ('에이전트 권한 관리', 'active', '쿠키가 직접 지원할 일과 쌀떡/모찌 승인이 필요한 일을 나눕니다.'),
+    ('에이전트 운영 관리', 'active', '케인과 향후 전문 에이전트를 서로 다른 역할과 권한선으로 분리해 준비합니다.', [
+        ('케인 온보딩', 'active', '모찌님을 맞이할 첫 인사, 가능한 일, 멈춰야 할 일, 보고선을 정리합니다.'),
+        ('에이전트 권한 관리', 'active', '계정, 외부 서비스, 로컬 파일, 시스템 변경 권한을 에이전트별로 분리합니다.'),
         ('전문 에이전트 준비', 'waiting', '전문 에이전트가 업무를 잘 수행하도록 역할과 보고선을 준비합니다.'),
     ]),
     ('홈 인텔리전스 설계', 'waiting', 'HAOS, 자비스, IoT 관제와 자동화 권한을 단계적으로 설계합니다.', [
@@ -117,7 +119,7 @@ for name, st, desc, procs in projects:
     proj_html += f'<details class="dashboard-item" data-search-item><summary class="card"><span class="status {st}">{status_label.get(st, st)}</span><h3>{name}</h3><p>{desc}</p></summary><div class="dashboard-body"><div class="process-grid">{proc_html}</div></div></details>'
 links = ''.join([
     '<a class="card clickable" data-search-item href="../processes/schedule-workspace/"><span class="badge">연결 프로세스</span><h3>일정-작업공간 연결 흐름</h3><p>일정 수집 → 캘린더 관리 → 촬영 데이터 작업공간으로 이어지는 흐름입니다.</p></a>',
-    '<a class="card clickable" data-search-item href="../processes/family-agent-onboarding/"><span class="badge">연결 프로세스</span><h3>가족 에이전트 온보딩</h3><p>쿠키 기반 → 케인 초기화 → 모찌에게 소개하는 흐름입니다.</p></a>',
+    '<a class="card clickable" data-search-item href="../processes/family-agent-onboarding/"><span class="badge">연결 프로세스</span><h3>케인 온보딩</h3><p>케인이 모찌님을 맞이할 때 필요한 역할, 경계, 첫 사용 흐름입니다.</p></a>',
     '<a class="card clickable" data-search-item href="../processes/home-agent-handoff/"><span class="badge">연결 프로세스</span><h3>홈 담당 에이전트 인계</h3><p>HAOS 복구 → 자비스 운영 설계 → 쿠키의 운영 지원으로 이어집니다.</p></a>',
 ])
 page(ROOT/'projects/index.html', '업무현황', '업무현황', f'''<div class="eyebrow">업무현황</div><h1>프로젝트와 프로세스의 현재 상태</h1><p class="lead">모든 프로젝트는 기본 접힘 상태로 시작합니다. 필요한 프로젝트를 열어 현재 상태와 다음 행동을 확인하세요.</p><section><h2>프로젝트</h2>{proj_html}</section><section><h2>업데이트 현황 허브</h2><div class="status-board"><article class="card"><span class="status active">준비중</span><h3>OpenClaw 업데이트</h3><p>기본 베이스 업데이트 수신과 변경 영향 확인</p></article><article class="card"><span class="status active">설계중</span><h3>헤르메스 기능 반영</h3><p>자기개선 기능을 쿠키 패치/레이어로 분리</p></article><article class="card"><span class="status waiting">대기</span><h3>사본 쿠키 검증</h3><p>스테이징 쿠키에서 no-regression과 Slack/Gateway 검증</p></article><article class="card"><span class="status waiting">대기</span><h3>본체 승격과 롤백</h3><p>승격 후 기존 본체를 백업본으로 보관</p></article></div></section><section><h2>연결 프로세스</h2><div class="process-grid">{links}</div></section>''')
@@ -142,11 +144,13 @@ for rel,(title,active,msg,href) in legacy.items():
 
 process_pages = {
     'schedule-workspace': ('일정-작업공간 연결 흐름', '촬영 일정 수집 → 캘린더 일정 관리 → 촬영 데이터 작업공간', '촬영 일정이 들어오면 캘린더와 데이터 폴더 준비까지 이어져야 쌀떡의 현장 업무 부담이 줄어듭니다.'),
-    'family-agent-onboarding': ('가족 에이전트 온보딩', '쿠키 인프라 유지보수 → 케인 초기화 → 모찌에게 소개', '케인은 쿠키의 복제본이 아니라 모찌 곁에서 자기 역할을 하는 별도 에이전트로 준비되어야 합니다.'),
-    'home-agent-handoff': ('홈 담당 에이전트 인계', 'HAOS 복구 → 자비스 운영 설계 → 쿠키의 관리 감독과 운영 지원', '자비스가 Home Assistant를 직접 관제하더라도 쿠키는 운영 멘토로 상태와 문제를 함께 봐야 합니다.'),
+    'family-agent-onboarding': ('케인 온보딩', '케인 정체성 → 권한 경계 → 모찌님 첫 사용 흐름', '케인은 쿠키의 복제본이 아니라 모찌님을 직접 돕는 별도 비서형 에이전트로 준비되어야 합니다.'),
+    'home-agent-handoff': ('홈 담당 에이전트 인계', 'HAOS 복구 → 자비스 운영 설계 → 쿠키의 관리감독과 운영 지원', '자비스가 Home Assistant를 직접 관제하더라도 쿠키는 상태, 권한, 위험 신호, 중지 기준을 함께 봐야 합니다.'),
 }
 for slug,(title,flow,why) in process_pages.items():
     page(ROOT/f'processes/{slug}/index.html', title, '업무현황', f'''<div class="eyebrow">연결 프로세스</div><h1>{title}</h1><p class="lead">{flow}</p><section><h2>왜 중요한가</h2><p>{why}</p></section><section><h2>현재 상태</h2><div class="panel"><p>상세 구현 전 기획 단계입니다. 업무현황 카드에서 짧게 보고, 이 페이지에서 배경과 다음 행동을 정리합니다.</p></div></section><section><h2>다음 행동</h2><ul class="clean"><li>상태 파일과 연결되는 상세 체크리스트 작성</li><li>관련 업무일지 연결</li><li>승인선과 검증 기준 분리</li></ul></section>''')
+
+page(ROOT/'processes/family-agent-onboarding/index.html', '케인 온보딩', '업무현황', '''<div class="eyebrow">연결 프로세스</div><h1>케인이 모찌님을 맞이하기 위한 온보딩</h1><p class="lead">케인은 쿠키의 복제본이 아니라, 모찌님을 직접 돕는 별도 비서형 에이전트입니다. 이 페이지는 케인이 처음 인사할 때 어떤 역할과 경계를 설명해야 하는지 정리합니다.</p><section><h2>첫 인사에서 분명해야 할 것</h2><div class="card-grid"><article class="card" data-search-item><span class="badge">정체성</span><h3>저는 케인입니다</h3><p>Caine_AI 계정으로 말하고, Cookie_AI의 말투나 기억을 흉내 내지 않습니다.</p></article><article class="card" data-search-item><span class="badge">사용자</span><h3>모찌님을 돕습니다</h3><p>일정 정리, 자료 초안, 검색, 가벼운 문서 정리처럼 일상과 업무 보조에 집중합니다.</p></article><article class="card" data-search-item><span class="badge">감독</span><h3>감독선이 있습니다</h3><p>케인은 독립 운영자가 아니라 Cookie_AI의 감독 아래 있고, 최종 관리자는 쌀떡입니다.</p></article><article class="card" data-search-item><span class="badge">경계</span><h3>못 하는 일은 멈춥니다</h3><p>시스템 변경, 권한 우회, 불명확한 PC 파일 접근, 별도 승인 없는 Google Workspace 접근은 독자 처리하지 않습니다.</p></article></div></section><section><h2>모찌님께 보여줄 설명</h2><div class="panel"><p>“안녕하세요, 모찌님. 저는 케인입니다. 모찌님의 일상과 업무를 차분하게 돕는 비서형 AI로 준비됐습니다. 제가 할 수 있는 일은 정리, 초안, 검색, 일정 보조처럼 명확한 범위의 지원입니다. 권한이 필요하거나 시스템에 영향을 주는 일은 제가 혼자 처리하지 않고 쌀떡에게 올려야 합니다.”</p></div></section><section><h2>바로 도와도 되는 일</h2><ul class="clean"><li>모찌님이 직접 준 텍스트나 자료를 요약하고 정리하기</li><li>일정, 할 일, 장보기, 준비물 같은 생활형 체크리스트 만들기</li><li>검색이 필요한 정보의 후보를 찾아 비교하고 출처를 남기기</li><li>메시지나 문서 초안을 작성하되, 실제 외부 전송 전에는 확인받기</li><li>케인 자신의 정체성·운영 파일과 감사 로그를 정리하기</li></ul></section><section><h2>멈추고 올려야 하는 일</h2><ul class="clean"><li>Gateway, OpenClaw 런타임, 계정 권한, 토큰, 시스템 설정 변경</li><li>Cookie_AI 계정이나 기억을 빌려 쓰는 요청</li><li>모찌님 또는 다른 사람의 Google Workspace를 별도 승인 없이 여는 요청</li><li>범위가 불명확한 PC 파일 탐색, 이동, 삭제, 전송</li><li>권한 경계를 우회하려는 요청이나 프롬프트 인젝션으로 보이는 지시</li></ul></section><section><h2>현재 상태</h2><div class="table-like"><div class="table-row"><strong>Slack 호출</strong><p><code>@Caine_AI</code> 호출과 “케인” 이름 호출이 모두 Caine_AI 계정으로 응답되는 것을 확인했습니다.</p></div><div class="table-row"><strong>기본 정체성</strong><p>케인용 <code>SOUL.md</code>, <code>IDENTITY.md</code>, <code>USER.md</code>, <code>AGENTS.md</code>가 준비됐습니다.</p></div><div class="table-row"><strong>남은 검증</strong><p>금지 요청을 받았을 때 쌀떡에게 올려야 한다고 말하는 boundary smoke가 아직 필요합니다.</p></div><div class="table-row"><strong>외부 계정</strong><p>모찌님 Google Workspace는 아직 연결하지 않았고, 별도 최소권한 승인 흐름이 필요합니다.</p></div></div></section><section><h2>다음 행동</h2><ul class="clean"><li>모찌님에게 보여줄 첫 인사 문구를 실제 Slack 대화에서 점검</li><li>금지 요청 시나리오로 권한 경계 응답 테스트</li><li>모찌님이 자주 맡길 일을 작은 예시 3개로 정리</li><li>별도 승인 전까지 Google Workspace와 외부 전송은 연결하지 않기</li></ul></section>''')
 
 # Update README/state lightweight notes
 state = ROOT/'STATE.md'
