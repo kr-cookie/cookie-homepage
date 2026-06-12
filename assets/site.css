@@ -187,6 +187,12 @@ strong { color: var(--text); font-weight: 700; }
 /* ---------- 패널 / 카드 ---------- */
 .panel, .card, .post-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
 .panel { padding: 24px; }
+.panel > h2:first-child {
+  margin: 0 0 16px;
+  padding: 0 0 14px;
+  border-top: 0;
+  border-bottom: 1px solid var(--line);
+}
 .card { padding: 20px 22px; transition: transform .15s ease, box-shadow .2s ease, border-color .15s ease; }
 .card-grid, .process-grid, .status-board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 4px; }
 .status-board { grid-template-columns: repeat(4, minmax(0, 1fr)); }
